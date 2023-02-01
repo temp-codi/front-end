@@ -9,6 +9,10 @@ import { geolocationApi } from "@/api/geolocation";
 import { useGeo } from "@/hooks/useGeolocation";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 
+// recoil
+import { useRecoilState } from "recoil";
+import { test } from "@/recoil/test";
+
 // fonts
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +27,9 @@ const Home = ({
     ],
   },
 }: any) => {
+  // recoil
+  const [counter, setCounter] = useRecoilState(test);
+
   console.log(cityInfo);
 
   const router = useRouter();
@@ -38,10 +45,17 @@ const Home = ({
   return (
     <Wrapper className="border-8 border-red-600">
       <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <Link href="/testAtom" id="testAtom">
+      <Link href="/sub" id="testAtom">
         Home
       </Link>
       <button onClick={getApi}>get api</button>
+      <div>
+        <span>{counter}</span>
+        <button onClick={() => setCounter((prev) => prev + 1)}>
+          눌러 이씨
+        </button>
+      </div>
+
       <TestAtom></TestAtom>
     </Wrapper>
   );
