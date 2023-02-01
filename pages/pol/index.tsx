@@ -19,6 +19,8 @@ const Pol = () => {
         positionClasses="absolute"
         lightClasses={["bg-slate-200"]}
         darkClasses={["dark:bg-slate-900"]}
+        zIndex="z-10"
+        transitionClasses={["transition-colors", "duration-700"]}
         style={{ border: "2px solid blue" }}
         className="w-full"
       >

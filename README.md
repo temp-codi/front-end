@@ -40,3 +40,26 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## lazy loading
 
 ![image](https://user-images.githubusercontent.com/102004753/216042208-66ae2a2a-5989-43b2-90e4-38ec54a79058.png)
+
+## Flex Element (Atom)
+
+tailwind class를 싸그리 박아넣는거 보다는 이렇게 쓰면 편리하겠쥬?
+
+```js
+<Flex
+  align="center"
+  justify="between"
+  direction="row"
+  positionClasses="absolute"
+  lightClasses={["bg-slate-200"]}
+  darkClasses={["dark:bg-slate-900"]}
+  zIndex="z-10"
+  transitionClasses={["transition-colors", "duration-700"]}
+  style={{ border: "2px solid blue" }}
+  className="w-full"
+>
+  <Flex>1</Flex>
+  <Flex>2</Flex>
+  <Flex>3</Flex>
+</Flex>
+```
