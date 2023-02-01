@@ -5,22 +5,21 @@ import { darkAtom } from "@/recoil/dark";
 
 const Pol = () => {
   const [isDark, setIsDark] = useRecoilState(darkAtom);
-  console.log(isDark);
 
   const toggleDark = () => {
     setIsDark((prev) => !prev);
   };
   return (
     <Dark dark={isDark}>
-      <button onClick={toggleDark}>dark</button>
+      <button onClick={toggleDark}>버툰</button>
       <Flex
         align="center"
         justify="between"
         direction="row"
         positionClasses="absolute"
         lightClasses={["bg-slate-200"]}
-        darkClasses={["dark:bg-slate-200"]}
-        style={{ border: "2px solid red" }}
+        darkClasses={["dark:bg-slate-900"]}
+        style={{ border: "2px solid blue" }}
         className="w-full"
       >
         <Flex>1</Flex>

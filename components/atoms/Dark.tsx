@@ -7,7 +7,7 @@ interface IDark {
 }
 
 const Dark = ({ dark, children }: IDark) => {
-  let darkClass = dark ? "dark" : "";
+  let darkClass = dark ? "dark" : "light";
   return <div className={darkClass}>{children}</div>;
 };
 
