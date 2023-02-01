@@ -1,6 +1,7 @@
 import { atom } from "recoil";
+import { v1 } from "uuid";
 
 export const darkAtom = atom({
-  key: "DARK_ATOM",
+  key: `dark_atom/${v1()}`,
   default: true as boolean,
 });
