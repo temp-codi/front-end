@@ -1,5 +1,5 @@
 import { styled } from "twin.macro";
-import TestAtom from "@/pages/components/atoms/TestAtom";
+import TestAtom from "@/components/atoms/TestAtom";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import useLocation from "@/pages/api/location";
