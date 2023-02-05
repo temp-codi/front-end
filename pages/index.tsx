@@ -1,20 +1,15 @@
 import { styled } from "twin.macro";
-import TestAtom from "@/components/atoms/TestAtom";
+
 import { useRouter } from "next/router";
 import Link from "next/link";
 import useLocation from "@/pages/api/location";
 
-import { Inter } from "@next/font/google";
 import { geolocationApi } from "@/api/geolocation";
 import { useGeo } from "@/hooks/useGeolocation";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 
 // recoil
 import { useRecoilState } from "recoil";
-import { test } from "@/recoil/test";
-
-// fonts
-const inter = Inter({ subsets: ["latin"] });
 
 const Home = ({
   dehydratedState: {
@@ -27,9 +22,6 @@ const Home = ({
     ],
   },
 }: any) => {
-  // recoil
-  const [counter, setCounter] = useRecoilState(test);
-
   console.log(cityInfo);
 
   const router = useRouter();
@@ -49,14 +41,7 @@ const Home = ({
         Home
       </Link>
       <button onClick={getApi}>get api</button>
-      <div>
-        <span>{counter}</span>
-        <button onClick={() => setCounter((prev) => prev + 1)}>
-          눌러 이씨
-        </button>
-      </div>
-
-      <TestAtom></TestAtom>
+      <div className="w-52 h-52 bg-slate-700"></div>
     </Wrapper>
   );
 };
