@@ -1,9 +1,6 @@
-import { styled } from "twin.macro";
+import React from "react";
 
 import {
-  Align,
-  Justify,
-  Direction,
   TClassName,
   TDarkClasses,
   TChildren,
@@ -12,13 +9,33 @@ import {
   TPosition,
   TZindex,
 } from "@/_types";
-import { flex, dark, transition, classCombine } from "@/lib";
 
-interface IBtn {
+import { dark, transition, classCombine } from "@/lib";
+
+interface DynamicTagProps {
+  as: "h1" | "h2" | "h3" | "h4" | "p" | "span" | "header";
+  className?: string;
   onClick?: TOnClick;
-  align?: Align;
-  justify?: Justify;
-  direction?: Direction;
+  children?: TChildren;
+  style?: {};
+}
+
+function DynamicTag({
+  as: Tag,
+  className,
+  onClick,
+  children,
+}: DynamicTagProps) {
+  return (
+    <Tag className={className} onClick={onClick}>
+      {children}
+    </Tag>
+  );
+}
+
+interface IText {
+  as: "h1" | "h2" | "h3" | "h4" | "p" | "span" | "header";
+  onClick?: TOnClick;
   className?: TClassName;
   lightClasses?: TDarkClasses;
   darkClasses?: TDarkClasses;
@@ -29,17 +46,9 @@ interface IBtn {
   style?: {};
 }
 
-interface ContainerProps {
-  align?: Align;
-  justify?: Justify;
-  direction?: Direction;
-}
-
-const Btn = ({
+const Text = ({
   onClick,
-  align,
-  justify,
-  direction,
+  as,
   className,
   lightClasses,
   darkClasses,
@@ -48,12 +57,10 @@ const Btn = ({
   zIndex,
   children,
   style,
-}: IBtn) => {
+}: IText) => {
   return (
-    <StBtn
-      align={align}
-      justify={justify}
-      direction={direction}
+    <DynamicTag
+      as={as}
       className={classCombine({
         transition: transition(transitionClasses),
         dark: dark(lightClasses, darkClasses),
@@ -64,13 +71,10 @@ const Btn = ({
       onClick={onClick}
       style={style}
     >
+      {" "}
       {children}
-    </StBtn>
+    </DynamicTag>
   );
 };
 
-const StBtn = styled.button(({ align, justify, direction }: ContainerProps) => [
-  ...flex({ align, justify, direction }),
-]);
-
-export default Btn;
+export default Text;
