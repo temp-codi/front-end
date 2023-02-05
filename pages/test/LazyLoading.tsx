@@ -4,9 +4,9 @@ import { useRecoilState } from 'recoil';
 
 const LazyLoading = () => {
   return (
-    <Flex direction="col" className="w-screen h-80 bg-slate-900 p-3 ">
-      <Flex className="w-40 h-8 bg-slate-700 rounded-md "></Flex>
-      <Flex direction="col">
+    <Flex direction="col" className="w-screen h-80 bg-slate-900 p-3">
+      <Flex className="w-40 h-8 bg-slate-700 rounded-md animate-pulse"></Flex>
+      <Flex direction="col" className="animate-pulse">
         <Flex className="w-40 h-40 bg-slate-600 mt-3 rounded-t-md"></Flex>
         <Flex
           direction="col"

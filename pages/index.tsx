@@ -31,10 +31,11 @@ const Home = ({
   };
 
   const { data, isLoading, isFetching } = useGeo();
-  if (isLoading) {
-    console.log(data);
+  if (!isLoading) {
+    return <LazyLoading></LazyLoading>;
+  } else {
+    return <div>로딩완료</div>;
   }
-  return <LazyLoading></LazyLoading>;
 };
 
 export async function getStaticProps() {
