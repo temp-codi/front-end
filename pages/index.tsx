@@ -9,7 +9,9 @@ import { useGeo } from '@/hooks/useGeolocation';
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import { LazyLoading } from '@/pages/test';
 // recoil
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { currentLocation } from '@/recoil/currentLocation';
+import UseCurrentLocation from '@/pages/test/UseCurrentLocation';
 
 const Home = ({
   dehydratedState: {
@@ -22,25 +24,11 @@ const Home = ({
     ],
   },
 }: any) => {
-  console.log(cityInfo);
-
-  const router = useRouter();
-  const { pid } = router.query;
-  const getApi = () => {
-    useLocation;
-  };
-
-  const { data, isLoading, isFetching } = useGeo();
-  if (!isLoading) {
-    return <LazyLoading></LazyLoading>;
-  } else {
-    return <div>로딩완료</div>;
-  }
+  return <UseCurrentLocation />;
 };
 
 export async function getStaticProps() {
   const queryClient = new QueryClient();
-  console.log('hoi');
   await queryClient.prefetchQuery({
     queryKey: ['initial'],
     queryFn: () => geolocationApi('', ''),
