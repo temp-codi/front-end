@@ -1,15 +1,17 @@
-import { styled } from "twin.macro";
+import { styled } from 'twin.macro';
 
-import { useRouter } from "next/router";
-import Link from "next/link";
-import useLocation from "@/pages/api/location";
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+import useLocation from '@/pages/api/location';
 
-import { geolocationApi } from "@/api/geolocation";
-import { useGeo } from "@/hooks/useGeolocation";
-import { dehydrate, QueryClient } from "@tanstack/react-query";
-
+import { geolocationApi } from '@/api/geolocation';
+import { useGeo } from '@/hooks/useGeolocation';
+import { dehydrate, QueryClient } from '@tanstack/react-query';
+import { LazyLoading } from '@/pages/test';
 // recoil
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { currentLocation } from '@/recoil/currentLocation';
+import UseCurrentLocation from '@/pages/test/UseCurrentLocation';
 
 const Home = ({
   dehydratedState: {
@@ -22,36 +24,14 @@ const Home = ({
     ],
   },
 }: any) => {
-  console.log(cityInfo);
-
-  const router = useRouter();
-  const { pid } = router.query;
-  const getApi = () => {
-    useLocation;
-  };
-
-  const { data, isLoading, isFetching } = useGeo();
-  if (isLoading) {
-    console.log(data);
-  }
-  return (
-    <Wrapper className="border-8 border-red-600">
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <Link href="/sub" id="testAtom">
-        Home
-      </Link>
-      <button onClick={getApi}>get api</button>
-      <div className="w-52 h-52 bg-slate-700"></div>
-    </Wrapper>
-  );
+  return <UseCurrentLocation />;
 };
 
 export async function getStaticProps() {
   const queryClient = new QueryClient();
-  console.log("hoi");
   await queryClient.prefetchQuery({
-    queryKey: ["initial"],
-    queryFn: () => geolocationApi("", ""),
+    queryKey: ['initial'],
+    queryFn: () => geolocationApi('', ''),
   });
 
   return {
