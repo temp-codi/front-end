@@ -51,7 +51,7 @@ export async function getStaticProps() {
   console.log("hoi");
   await queryClient.prefetchQuery({
     queryKey: ["initial"],
-    queryFn: () => geolocationApi("", ""),
+    queryFn: () => geolocationApi({ lat: "", lon: "" }),
   });
 
   return {

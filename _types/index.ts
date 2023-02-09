@@ -45,3 +45,10 @@ export type TOnClick = () => void;
 /*******************  Types for darkClasses ******************/
 
 export type TDarkProp = boolean;
+
+/*******************  Interfacec for location ******************/
+
+export interface Ilocation {
+  lat: string;
+  lon: string;
+}
