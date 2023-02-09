@@ -2,8 +2,15 @@ import React from "react";
 import { Flex, Dark, Text } from "@/components/atoms";
 import { useRecoilState } from "recoil";
 import { darkAtom } from "@/recoil/dark";
+import { useGeo } from "@/hooks/useGeolocation";
 
 const Pol = () => {
+  const { location, data, isLoading } = useGeo();
+  // geolocation
+  console.log(location);
+  console.log(data);
+
+  // dark mode
   const [isDark, setIsDark] = useRecoilState(darkAtom);
 
   const toggleDark = () => {
@@ -23,7 +30,13 @@ const Pol = () => {
         transitionClasses={["transition-colors", "duration-700"]}
         style={{ border: "2px solid blue" }}
         className="w-full"
-      ></Flex>
+      >
+        <Text as="h1" className="">
+          Hello World
+        </Text>
+        <Text as="h2">Hello World</Text>
+        <Text as="p">Hello World</Text>
+      </Flex>
 
       <div className="w-52 h-52 bg-slate-700"></div>
       <Text as="h1" className="">
