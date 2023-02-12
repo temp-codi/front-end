@@ -1,5 +1,6 @@
 import React from "react";
 import { Flex, Dark, Text } from "@/components/atoms";
+import Left from "@/components/organisms/Left";
 import { useRecoilState } from "recoil";
 import { darkAtom } from "@/recoil/dark";
 import { useGeo } from "@/hooks/useGeolocation";
@@ -7,9 +8,9 @@ import { Card } from "@/components/molecules/lazy_loading";
 
 const Pol = () => {
   const { location, data, isLoading } = useGeo();
-  // geolocation
-  console.log(location);
+
   console.log(data);
+  // geolocation
 
   // dark mode
   const [isDark, setIsDark] = useRecoilState(darkAtom);
@@ -45,7 +46,8 @@ const Pol = () => {
       </Text>
       <Text as="h2">Hello World</Text>
       <Text as="p">Hello World</Text>
-      <Card />
+      {isLoading && <Card />}
+      <Left />
     </Dark>
   );
 };
