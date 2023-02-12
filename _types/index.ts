@@ -52,3 +52,21 @@ export interface Ilocation {
   lat: string;
   lon: string;
 }
+
+/*******************  Interfacec for googleImg ******************/
+
+export interface IGoogleImg {
+  keyword: string;
+  pageNo: number;
+  gender: string;
+}
+/*******************  Interfacec for googleImg ******************/
+
+export interface IGoogleImgOutput {
+  googleInfo: [
+    {
+      img: string;
+      siteLink: string;
+    }
+  ];
+}
