@@ -3,6 +3,7 @@ import { Flex, Dark, Text } from "@/components/atoms";
 import { useRecoilState } from "recoil";
 import { darkAtom } from "@/recoil/dark";
 import { useGeo } from "@/hooks/useGeolocation";
+import { Card } from "@/components/molecules/lazy_loading";
 
 const Pol = () => {
   const { location, data, isLoading } = useGeo();
@@ -44,6 +45,7 @@ const Pol = () => {
       </Text>
       <Text as="h2">Hello World</Text>
       <Text as="p">Hello World</Text>
+      <Card />
     </Dark>
   );
 };

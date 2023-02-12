@@ -7,7 +7,7 @@ import useLocation from "@/pages/api/location";
 import { geolocationApi } from "@/api/geolocation";
 import { useGeo } from "@/hooks/useGeolocation";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
-import { LazyLoading } from "@/pages/test";
+import { Card } from "@/components/molecules/lazy_loading";
 // recoil
 import { useRecoilState, useRecoilValue } from "recoil";
 import { currentLocation } from "@/recoil/currentLocation";

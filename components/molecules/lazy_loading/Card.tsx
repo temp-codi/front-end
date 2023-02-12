@@ -2,7 +2,7 @@ import React from "react";
 import { Flex } from "@/components/atoms";
 import { useRecoilState } from "recoil";
 
-const LazyLoading = () => {
+const Card = () => {
   return (
     <Flex direction="col" className="w-screen h-80 bg-slate-900 p-3">
       <Flex className="w-40 h-8 bg-slate-700 rounded-md animate-pulse"></Flex>
@@ -20,4 +20,4 @@ const LazyLoading = () => {
   );
 };
 
-export default LazyLoading;
+export default Card;

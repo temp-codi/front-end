@@ -6,6 +6,7 @@ import { locationAtom } from "@/recoil/location";
 
 export const useGeo = () => {
   const [location, setLocation] = useRecoilState(locationAtom);
+  console.log(location);
 
   // geolocation 불러오는 함수
   useEffect(() => {
