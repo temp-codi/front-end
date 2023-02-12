@@ -1,12 +1,13 @@
 import React from 'react';
 import { Text, Flex, Btn } from '@/components/atoms';
-
+import { TOnClick } from '@/_types';
 interface Props {
   firstCategory: string; //ex: Head
   secondCategory?: string; //ex: Sunhat,Ponytail
+  onClick?: TOnClick;
 }
 
-const CodiBtn = ({ firstCategory, secondCategory }: Props) => {
+const CodiBtn = ({ onClick, firstCategory, secondCategory }: Props) => {
   if (secondCategory) {
     return (
       <Btn
@@ -14,6 +15,7 @@ const CodiBtn = ({ firstCategory, secondCategory }: Props) => {
         align="center"
         justify="between"
         className="bg-slate-400  rounded-2xl p-3"
+        onClick={onClick}
       >
         <Text className="pl-5 font-bold text-sm" as="p">
           {firstCategory}
@@ -30,6 +32,7 @@ const CodiBtn = ({ firstCategory, secondCategory }: Props) => {
         align="center"
         justify="center"
         className="bg-slate-400  rounded-2xl p-8"
+        onClick={onClick}
       >
         <Text className="font-bold text-xl" as="p">
           {firstCategory}
