@@ -3,13 +3,15 @@ import { Flex, Dark, Text } from "@/components/atoms";
 import Left from "@/components/organisms/Left";
 import { useRecoilState } from "recoil";
 import { darkAtom } from "@/recoil/dark";
-import { useGeo } from "@/hooks/useGeolocation";
+import { useGeo, useGoogleImg } from "@/hooks";
 import { Card } from "@/components/molecules/lazy_loading";
 
 const Pol = () => {
-  const { location, data, isLoading } = useGeo();
+  const { location, data: geoData, isLoading: geoLoading } = useGeo();
+  const { data: googleImgData, isLoading: googleImgLoading } = useGoogleImg();
 
-  console.log(data);
+  console.log(geoData);
+  console.log(googleImgData);
   // geolocation
 
   // dark mode
@@ -46,7 +48,7 @@ const Pol = () => {
       </Text>
       <Text as="h2">Hello World</Text>
       <Text as="p">Hello World</Text>
-      {isLoading && <Card />}
+      <Card />
       <Left />
     </Dark>
   );

@@ -6,12 +6,16 @@ export const googleImgApi = async ({
   pageNo,
   gender,
 }: IGoogleImg): Promise<IGoogleImgArr> => {
-  const { data } = await instance.post("googleImg", {
-    keyword,
-    pageNo,
-    gender,
-  });
-  console.log(data);
+  if (keyword && pageNo && gender) {
+    const { data } = await instance.post("googleImg", {
+      keyword,
+      pageNo,
+      gender,
+    });
+    console.log(data);
 
-  return data;
+    return data;
+  } else {
+    return null;
+  }
 };

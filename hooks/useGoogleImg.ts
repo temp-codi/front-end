@@ -25,13 +25,11 @@ export const useGoogleImg = () => {
   }, [query, setSearchProps]);
 
   return {
-    searchProps,
-    setSearchProps,
     googleImgArr,
     ...useQuery({
-      queryKey: ["googleImg"],
-      queryFn: () =>
-        googleImgApi({ keyword: "yellow shirt", pageNo: 1, gender: "male" }),
+      queryKey: ["googleImg", searchProps],
+      queryFn: () => googleImgApi(searchProps),
+      enabled: !!searchProps,
     }),
   };
 };

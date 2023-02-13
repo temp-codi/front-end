@@ -67,4 +67,4 @@ interface IGoogleImgInfo {
   siteLink: string;
 }
 
-export type IGoogleImgArr = IGoogleImgInfo[];
+export type IGoogleImgArr = IGoogleImgInfo[] | null;
