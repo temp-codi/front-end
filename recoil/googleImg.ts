@@ -1,15 +1,18 @@
-import { atom } from 'recoil';
-import { v1 } from 'uuid';
-import { IGoogleImgOutput } from '@/_types';
-const googleInfo: IGoogleImgOutput = {
-  googleInfo: [
-    {
-      img: '',
-      siteLink: '',
-    },
-  ],
-};
+import { atom } from "recoil";
+import { v1 } from "uuid";
+import { IGoogleImgArr } from "@/_types";
+
 export const googleImgAtom = atom({
   key: `googleImg_atom/${v1()}`,
-  default: googleInfo,
+  default: [
+    {
+      img: "",
+      siteLink: "",
+    },
+  ] as IGoogleImgArr,
+});
+
+export const googleImgPropsAtoms = atom({
+  key: `googleImg_props/${v1()}`,
+  default: { keyword: "", pageNo: 1, gender: "male" },
 });

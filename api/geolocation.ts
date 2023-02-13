@@ -8,5 +8,7 @@ export const geolocationApi = async ({ lat, lon }: Ilocation) => {
       lon,
     });
     return data;
+  } else {
+    return null;
   }
 };

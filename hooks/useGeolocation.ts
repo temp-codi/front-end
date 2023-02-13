@@ -22,8 +22,14 @@ export const useGeo = () => {
   return {
     location,
     ...useQuery({
-      queryKey: ["normal"],
-      queryFn: () => geolocationApi(location),
+      queryKey: ["geolocation", location],
+      queryFn: () => {
+        if (!location) {
+          return { cityInfo: null };
+        }
+        return geolocationApi(location);
+      },
+      enabled: !!location,
     }),
   };
 };
