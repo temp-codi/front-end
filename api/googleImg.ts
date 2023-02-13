@@ -12,7 +12,6 @@ export const googleImgApi = async ({
       pageNo,
       gender,
     });
-    console.log(data);
 
     return data;
   } else {
