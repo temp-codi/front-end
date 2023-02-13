@@ -68,3 +68,10 @@ interface IGoogleImgInfo {
 }
 
 export type IGoogleImgArr = IGoogleImgInfo[] | null;
+
+/*******************  types for img ******************/
+export type TSrc = string;
+export type TAlt = string;
+export type TWidth = number | undefined;
+export type THeight = number | undefined;
+export type TLoading = "lazy";

@@ -14,8 +14,6 @@ const Left = (props: Props) => {
 
   const handleApi = async () => {
     const res = await googleImgApi(sendData);
-    console.log(res);
-    console.log("hi");
   };
 
   return (

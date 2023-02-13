@@ -10,10 +10,6 @@ const Pol = () => {
   const { location, data: geoData, isLoading: geoLoading } = useGeo();
   const { data: googleImgData, isLoading: googleImgLoading } = useGoogleImg();
 
-  console.log(geoData);
-  console.log(googleImgData);
-  // geolocation
-
   // dark mode
   const [isDark, setIsDark] = useRecoilState(darkAtom);
 

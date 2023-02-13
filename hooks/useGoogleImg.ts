@@ -2,15 +2,14 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useQuery } from "@tanstack/react-query";
 import { googleImgApi } from "@/api/googleImg";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { googleImgAtom, googleImgPropsAtoms } from "@/recoil/googleImg";
 
 export const useGoogleImg = () => {
   const { query } = useRouter();
 
   const [searchProps, setSearchProps] = useRecoilState(googleImgPropsAtoms);
-  const [googleImgArr, setGoogleImgArr] = useRecoilState(googleImgAtom);
-  console.log(googleImgArr);
+  const googleImgArr = useRecoilValue(googleImgAtom);
 
   useEffect(() => {
     const { keyword, pageNo, gender } = query;
