@@ -1,5 +1,48 @@
-import tw from "twin.macro";
+import { TClassName, TPosition, TZindex, TGrid, THover } from "@/_types";
 
-const grid = () => {
-  return [];
+interface IClassComb {
+  transition?: string;
+  dark?: string;
+  className?: TClassName;
+  position?: TPosition;
+  zIndex?: TZindex;
+  grid?: TGrid;
+  hover?: THover;
+}
+
+const grid = ({
+  transition,
+  dark,
+  className,
+  position,
+  zIndex,
+  grid,
+  hover,
+}: IClassComb) => {
+  let newClasses = "grid";
+  if (transition) {
+    newClasses += transition + " ";
+  }
+  if (dark) {
+    newClasses += dark + " ";
+  }
+  if (position) {
+    newClasses += position + " ";
+  }
+  if (zIndex) {
+    newClasses += zIndex + " ";
+  }
+  if (grid) {
+    newClasses += grid + " ";
+  }
+  if (hover) {
+    newClasses += hover + " ";
+  }
+  if (className) {
+    newClasses += className + " ";
+  }
+
+  return newClasses;
 };
+
+export default grid;
