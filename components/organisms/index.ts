@@ -1,3 +1,5 @@
-import Left from './Left';
+import Left from "./Left";
+import TopTemperature from "./home/TopTemperature";
+import TempDetail from "./home/TempDetail";
 
-export { Left };
+export { Left, TopTemperature, TempDetail };

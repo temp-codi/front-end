@@ -17,8 +17,8 @@ import { dark, transition, classCombine } from "@/lib";
 interface IImg {
   src: TSrc;
   alt: TAlt;
-  width?: TWidth;
-  height?: THeight;
+  width: TWidth;
+  height: THeight;
   loading: TLoading;
   onClick?: TOnClick;
   className?: TClassName;
