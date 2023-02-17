@@ -1,17 +1,23 @@
-import React from "react";
-import { Flex } from "@/components/atoms";
-import { CircleBox } from "@/components/molecules";
+import React from 'react';
+import { useRecoilValue } from 'recoil';
+import { Flex } from '@/components/atoms';
+import { CircleBox } from '@/components/molecules';
 
 const TopTemperature = () => {
-  return (
-    <Flex align="center" justify="between" direction="row" className="border">
-      <CircleBox />
-      <CircleBox />
-      <CircleBox />
-      <CircleBox />
-      <CircleBox />
-    </Flex>
-  );
+    return (
+        <Flex
+            align="center"
+            justify="between"
+            direction="row"
+            className="border"
+        >
+            <CircleBox />
+            <CircleBox />
+            <CircleBox />
+            <CircleBox />
+            <CircleBox />
+        </Flex>
+    );
 };
 
 export default TopTemperature;

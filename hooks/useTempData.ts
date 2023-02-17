@@ -1,31 +1,34 @@
-import { useEffect } from "react";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import { tempAtom } from "@/recoil/temp";
-import { locationWithCity } from "@/recoil/location";
-import { useQuery } from "@tanstack/react-query";
-import { tempApi } from "@/api/temp";
+import { useEffect } from 'react';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { tempAtom, tempClassified } from '@/recoil/temp';
+import { locationWithCity } from '@/recoil/location';
+import { useQuery } from '@tanstack/react-query';
+import { tempApi } from '@/api/temp';
+import { tempClassify } from '@/lib';
 
 export const useTempData = () => {
-  const locationWithCityValue = useRecoilValue(locationWithCity);
+    const locationWithCityValue = useRecoilValue(locationWithCity);
 
-  const setTempData = useSetRecoilState(tempAtom);
+    const setTempData = useSetRecoilState(tempAtom);
+    const setTempClassified = useSetRecoilState(tempClassified);
 
-  return {
-    ...useQuery({
-      queryKey: ["tempData", locationWithCityValue],
-      queryFn: async () => {
-        const { lat, lon, city } = locationWithCityValue;
-        if (lat && lon && city) {
-          const data = await tempApi(locationWithCityValue);
-          console.log(data);
-          if (data) {
-            setTempData(data);
-          }
-          return data;
-        } else {
-          return { tempData: null };
-        }
-      },
-    }),
-  };
+    return {
+        ...useQuery({
+            queryKey: ['tempData', locationWithCityValue],
+            queryFn: async () => {
+                const data = await tempApi(locationWithCityValue);
+                if (data) {
+                    const {
+                        data: { list },
+                    } = data;
+                    const res = tempClassify(list);
+                    console.log(res);
+                    setTempClassified(res);
+                }
+                setTempData(data);
+
+                return data;
+            },
+        }),
+    };
 };
