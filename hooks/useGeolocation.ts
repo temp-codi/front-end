@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { geolocationApi } from '@/api/geolocation';
-import { useRecoilState } from 'recoil';
-import { locationAtom } from '@/recoil/location';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { locationAtom, locationWithCity } from '@/recoil/location';
 
 export const useGeo = () => {
     const [location, setLocation] = useRecoilState(locationAtom);
+    const setLocationWithCity = useSetRecoilState(locationWithCity);
 
     // geolocation 불러오는 함수
     useEffect(() => {
@@ -23,11 +24,20 @@ export const useGeo = () => {
         location,
         ...useQuery({
             queryKey: ['geolocation', location],
-            queryFn: () => {
+            queryFn: async () => {
                 if (!location) {
                     return { cityInfo: null };
                 }
-                return geolocationApi(location);
+
+                const data = await geolocationApi(location);
+                if (data) {
+                    const {
+                        cityInfo: { city },
+                    } = data;
+                    setLocationWithCity({ ...location, city });
+                    return city;
+                }
+                return { cityInfo: null };
             },
             enabled: !!location,
         }),
