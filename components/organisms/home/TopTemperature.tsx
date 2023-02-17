@@ -1,9 +1,12 @@
 import React from 'react';
 import { useRecoilValue } from 'recoil';
+import { tempClassified } from '@/recoil/temp';
 import { Flex } from '@/components/atoms';
 import { CircleBox } from '@/components/molecules';
 
 const TopTemperature = () => {
+    const tempForecast = useRecoilValue(tempClassified);
+    console.log(tempForecast);
     return (
         <Flex
             align="center"
@@ -11,11 +14,16 @@ const TopTemperature = () => {
             direction="row"
             className="border"
         >
-            <CircleBox />
-            <CircleBox />
-            <CircleBox />
-            <CircleBox />
-            <CircleBox />
+            {tempForecast.next5Days.map((item, idx) => {
+                const { averageTemperature, weatherId } = item;
+                return (
+                    <CircleBox
+                        key={idx}
+                        averageTemperature={averageTemperature}
+                        weatherId={weatherId}
+                    />
+                );
+            })}
         </Flex>
     );
 };

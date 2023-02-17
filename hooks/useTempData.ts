@@ -22,7 +22,6 @@ export const useTempData = () => {
                         data: { list },
                     } = data;
                     const res = tempClassify(list);
-                    console.log(res);
                     setTempClassified(res);
                 }
                 setTempData(data);
