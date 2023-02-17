@@ -1,28 +1,28 @@
-import React from "react";
-import { Flex, Dark, Text } from "@/components/atoms";
-import Left from "@/components/organisms/Left";
-import { useRecoilState } from "recoil";
-import { darkAtom } from "@/recoil/dark";
-import { useGeo, useGoogleImg } from "@/hooks";
-import { Card, CircleBox } from "@/components/molecules";
-import { TopTemperature, TempDetail } from "@/components/organisms";
+import React from 'react';
+import { Flex, Dark, Text } from '@/components/atoms';
+import Left from '@/components/organisms/Left';
+import { useRecoilState } from 'recoil';
+import { darkAtom } from '@/recoil/dark';
+import { useGeo, useGoogleImg } from '@/hooks';
+import { Card, CircleBox } from '@/components/molecules';
+import { TopTemperature, TempDetail } from '@/components/organisms';
 
 const Pol = () => {
-  const { location, data: geoData, isLoading: geoLoading } = useGeo();
-  const { data: googleImgData, isLoading: googleImgLoading } = useGoogleImg();
+    const { location, data: geoData, isLoading: geoLoading } = useGeo();
+    const { data: googleImgData, isLoading: googleImgLoading } = useGoogleImg();
 
-  // dark mode
-  const [isDark, setIsDark] = useRecoilState(darkAtom);
+    // dark mode
+    const [isDark, setIsDark] = useRecoilState(darkAtom);
 
-  const toggleDark = () => {
-    setIsDark((prev) => !prev);
-  };
-  return (
-    <Dark dark={isDark}>
-      <TopTemperature />
-      <TempDetail />
-    </Dark>
-  );
+    const toggleDark = () => {
+        setIsDark((prev) => !prev);
+    };
+    return (
+        <Dark dark={isDark}>
+            <TopTemperature />
+            <TempDetail />
+        </Dark>
+    );
 };
 
 export default Pol;

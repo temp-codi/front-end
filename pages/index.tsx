@@ -1,52 +1,54 @@
-import { styled } from "twin.macro";
+import React from 'react';
+import { Flex, Dark, Text } from '@/components/atoms';
+import Left from '@/components/organisms/Left';
+import { useRecoilState } from 'recoil';
+import { darkAtom } from '@/recoil/dark';
+import { useGeo, useGoogleImg } from '@/hooks';
+import { Card } from '@/components/molecules/lazy_loading';
 
-import { useRouter } from "next/router";
-import Link from "next/link";
-import useLocation from "@/pages/api/location";
+const Pol = () => {
+  const { location, data: geoData, isLoading: geoLoading } = useGeo();
+  const { data: googleImgData, isLoading: googleImgLoading } = useGoogleImg();
 
-import { geolocationApi } from "@/api/geolocation";
-import { useGeo } from "@/hooks/useGeolocation";
-import { dehydrate, QueryClient } from "@tanstack/react-query";
-import { Card } from "@/components/molecules/lazy_loading";
-// recoil
-import { useRecoilState, useRecoilValue } from "recoil";
-import UseCurrentLocation from "@/pages/test/UseCurrentLocation";
+  // dark mode
+  const [isDark, setIsDark] = useRecoilState(darkAtom);
 
-// {
-//   dehydratedState: {
-//     queries: [
-//       {
-//         state: {
-//           data: { cityInfo },
-//         },
-//       },
-//     ],
-//   },
-// }: any
+  const toggleDark = () => {
+    setIsDark((prev) => !prev);
+  };
+  return (
+    <Dark dark={isDark}>
+      <button onClick={toggleDark}>버툰</button>
+      <Flex
+        align="center"
+        justify="between"
+        direction="row"
+        positionClasses="absolute"
+        lightClasses={['bg-slate-200']}
+        darkClasses={['dark:bg-slate-900']}
+        zIndex="z-10"
+        transitionClasses={['transition-colors', 'duration-700']}
+        style={{ border: '2px solid blue' }}
+        className="w-full"
+      >
+        <Text as="h1" className="">
+          Hello World
+        </Text>
+        <Text as="h2">Hello World</Text>
+        <Text as="p">Hello World</Text>
+      </Flex>
 
-const Home = () => {
-  return <UseCurrentLocation />;
+      <div className="w-52 h-52 bg-slate-700"></div>
+      <Text as="h1" className="">
+        Hello World
+      </Text>
+      <Text as="h2">Hello World</Text>
+      <Text as="p">Hello World</Text>
+      {/* <Card /> */}
+      <Left type="sec" />
+      {/* <Left type="main" /> */}
+    </Dark>
+  );
 };
 
-// 페이지 안에 들어와서 로딩 상태 보여주는게 더 UI 적으로 효과적이기 때문에
-// getStaticProps는 사용하지 않는걸로...
-// 막약 벡엔드 서버 프리미엄으로 바꾸면 사용하면 되지용
-export async function getStaticProps() {
-  const queryClient = new QueryClient();
-  await queryClient.prefetchQuery({
-    queryKey: ["initial"],
-    queryFn: () => geolocationApi({ lat: "45", lon: "45" }),
-  });
-
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-  };
-}
-
-const Wrapper = styled.div`
-  height: 100px;
-  width: 100px;
-`;
-export default Home;
+export default Pol;
