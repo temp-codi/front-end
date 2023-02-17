@@ -18,6 +18,8 @@
     "axios": "^1.2.6",
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.2",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "framer-motion": "^8.4.7",
     "fs": "^0.0.1-security",
     "next": "13.1.2",
