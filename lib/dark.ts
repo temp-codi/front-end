@@ -1,21 +1,21 @@
-import { TDarkClasses } from "@/_types";
+import { TDarkClasses } from '@/_types';
 
 interface IDark {
-  (lightClasses?: TDarkClasses, darkClasses?: TDarkClasses): string;
+    (lightClasses?: TDarkClasses, darkClasses?: TDarkClasses): string;
 }
 
 const dark: IDark = (lightClasses, darkClasses) => {
-  let newClasses = "";
-  const lightString = lightClasses?.join(" ");
-  if (lightString) {
-    newClasses += lightString + " ";
-  }
-  const darkString = darkClasses?.join(" ");
-  if (darkString) {
-    newClasses += darkString + " ";
-  }
+    let newClasses = '';
+    const lightString = lightClasses?.join(' ');
+    if (lightString) {
+        newClasses += lightString + ' ';
+    }
+    const darkString = darkClasses?.join(' ');
+    if (darkString) {
+        newClasses += darkString + ' ';
+    }
 
-  return newClasses;
+    return newClasses;
 };
 
 export default dark;

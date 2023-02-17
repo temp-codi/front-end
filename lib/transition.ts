@@ -1,17 +1,17 @@
-import { TTransitionClass } from "@/_types";
+import { TTransitionClass } from '@/_types';
 
 interface ITransition {
-  (transitionClass: TTransitionClass): string;
+    (transitionClass: TTransitionClass): string;
 }
 
 const transition: ITransition = (transitionClass) => {
-  let newClasses = "";
-  const transitionString = transitionClass?.join(" ");
-  if (transitionString) {
-    newClasses += transitionString + " ";
-  }
+    let newClasses = '';
+    const transitionString = transitionClass?.join(' ');
+    if (transitionString) {
+        newClasses += transitionString + ' ';
+    }
 
-  return newClasses;
+    return newClasses;
 };
 
 export default transition;

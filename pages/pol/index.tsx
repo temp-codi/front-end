@@ -1,10 +1,10 @@
-import React from "react";
-import { Flex, Dark, Text } from "@/components/atoms";
-import Left from "@/components/organisms/Left";
-import { useRecoilState } from "recoil";
-import { darkAtom } from "@/recoil/dark";
-import { useGeo, useGoogleImg } from "@/hooks";
-import { Card } from "@/components/molecules/lazy_loading";
+import React from 'react';
+import { Flex, Dark, Text } from '@/components/atoms';
+import Left from '@/components/organisms/Left';
+import { useRecoilState } from 'recoil';
+import { darkAtom } from '@/recoil/dark';
+import { useGeo, useGoogleImg } from '@/hooks';
+import { Card } from '@/components/molecules/lazy_loading';
 
 const Pol = () => {
   const { location, data: geoData, isLoading: geoLoading } = useGeo();
@@ -24,11 +24,11 @@ const Pol = () => {
         justify="between"
         direction="row"
         positionClasses="absolute"
-        lightClasses={["bg-slate-200"]}
-        darkClasses={["dark:bg-slate-900"]}
+        lightClasses={['bg-slate-200']}
+        darkClasses={['dark:bg-slate-900']}
         zIndex="z-10"
-        transitionClasses={["transition-colors", "duration-700"]}
-        style={{ border: "2px solid blue" }}
+        transitionClasses={['transition-colors', 'duration-700']}
+        style={{ border: '2px solid blue' }}
         className="w-full"
       >
         <Text as="h1" className="">
@@ -44,8 +44,8 @@ const Pol = () => {
       </Text>
       <Text as="h2">Hello World</Text>
       <Text as="p">Hello World</Text>
-      <Card />
-      <Left />
+      {/* <Card /> */}
+      <Left type="second" />
     </Dark>
   );
 };

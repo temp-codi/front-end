@@ -1,10 +1,10 @@
 /*******************  Types for Flex **************************/
 
-export type Align = "start" | "end" | "center" | undefined;
+export type Align = 'start' | 'end' | 'center' | undefined;
 
-export type Justify = "start" | "end" | "center" | "between" | undefined;
+export type Justify = 'start' | 'end' | 'center' | 'between' | undefined;
 
-export type Direction = "row" | "col" | undefined;
+export type Direction = 'row' | 'col' | undefined;
 
 /*******************  Types for ClassName ********************/
 
@@ -20,11 +20,11 @@ export type TTransitionClass = string[] | undefined;
 
 /*******************  Types for position *********************/
 
-export type TPosition = "relative" | "absolute" | "fixed" | "sticky" | "static";
+export type TPosition = 'relative' | 'absolute' | 'fixed' | 'sticky' | 'static';
 
 /*******************  Types for zIndex ***********************/
 
-export type TZindex = "z-0" | "z-10" | "z-20" | "z-30" | "z-40" | "z-50";
+export type TZindex = 'z-0' | 'z-10' | 'z-20' | 'z-30' | 'z-40' | 'z-50';
 
 /*******************  Types for grid *****************/
 
@@ -49,29 +49,31 @@ export type TDarkProp = boolean;
 /*******************  Interfacec for location ******************/
 
 export interface Ilocation {
-  lat: string;
-  lon: string;
+    lat: string;
+    lon: string;
 }
 
 /*******************  Interfacec for googleImg ******************/
 
 export interface IGoogleImg {
-  keyword: string | string[];
-  pageNo: number;
-  gender: string;
+    keyword: string | string[];
+    pageNo: number;
+    gender: string;
 }
 /*******************  Interfacec for googleImg ******************/
 
-interface IGoogleImgInfo {
-  img: string;
-  siteLink: string;
+export interface IGoogleImgInfo {
+    googleInfo: {
+        // Add the properties you need for the `googleInfo` object
+        img: string[];
+    };
 }
 
-export type IGoogleImgArr = IGoogleImgInfo[] | null;
+export type IGoogleImgArr = any;
 
 /*******************  types for img ******************/
-export type TSrc = string;
+export type TSrc = any;
 export type TAlt = string;
 export type TWidth = number | undefined;
 export type THeight = number | undefined;
-export type TLoading = "lazy";
+export type TLoading = 'lazy';
