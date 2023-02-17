@@ -1,4 +1,4 @@
 import { useGoogleImg } from './useGoogleImg';
 import { useGeo } from './useGeolocation';
-
-export { useGoogleImg, useGeo };
+import { useChatGpt } from './useChatGpt';
+export { useGoogleImg, useGeo, useChatGpt };
