@@ -8,8 +8,8 @@ import { Card, CircleBox } from "@/components/molecules";
 import { TopTemperature, TempDetail } from "@/components/organisms";
 
 const Pol = () => {
-  // const { location, data: geoData, isLoading: geoLoading } = useGeo();
-  // const { data: googleImgData, isLoading: googleImgLoading } = useGoogleImg();
+  const { location, data: geoData, isLoading: geoLoading } = useGeo();
+  const { data: googleImgData, isLoading: googleImgLoading } = useGoogleImg();
 
   // dark mode
   const [isDark, setIsDark] = useRecoilState(darkAtom);
