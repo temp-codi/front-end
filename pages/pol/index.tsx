@@ -4,50 +4,25 @@ import Left from '@/components/organisms/Left';
 import { useRecoilState } from 'recoil';
 import { darkAtom } from '@/recoil/dark';
 import { useGeo, useGoogleImg } from '@/hooks';
-import { Card } from '@/components/molecules/lazy_loading';
+import { Card, CircleBox } from '@/components/molecules';
+import { TopTemperature, TempDetail } from '@/components/organisms';
 
 const Pol = () => {
-  const { location, data: geoData, isLoading: geoLoading } = useGeo();
-  const { data: googleImgData, isLoading: googleImgLoading } = useGoogleImg();
+    const { location, data: geoData, isLoading: geoLoading } = useGeo();
+    const { data: googleImgData, isLoading: googleImgLoading } = useGoogleImg();
 
-  // dark mode
-  const [isDark, setIsDark] = useRecoilState(darkAtom);
+    // dark mode
+    const [isDark, setIsDark] = useRecoilState(darkAtom);
 
-  const toggleDark = () => {
-    setIsDark((prev) => !prev);
-  };
-  return (
-    <Dark dark={isDark}>
-      <button onClick={toggleDark}>버툰</button>
-      <Flex
-        align="center"
-        justify="between"
-        direction="row"
-        positionClasses="absolute"
-        lightClasses={['bg-slate-200']}
-        darkClasses={['dark:bg-slate-900']}
-        zIndex="z-10"
-        transitionClasses={['transition-colors', 'duration-700']}
-        style={{ border: '2px solid blue' }}
-        className="w-full"
-      >
-        <Text as="h1" className="">
-          Hello World
-        </Text>
-        <Text as="h2">Hello World</Text>
-        <Text as="p">Hello World</Text>
-      </Flex>
-
-      <div className="w-52 h-52 bg-slate-700"></div>
-      <Text as="h1" className="">
-        Hello World
-      </Text>
-      <Text as="h2">Hello World</Text>
-      <Text as="p">Hello World</Text>
-      {/* <Card /> */}
-      <Left type="second" />
-    </Dark>
-  );
+    const toggleDark = () => {
+        setIsDark((prev) => !prev);
+    };
+    return (
+        <Dark dark={isDark}>
+            <TopTemperature />
+            <TempDetail />
+        </Dark>
+    );
 };
 
 export default Pol;
