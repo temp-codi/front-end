@@ -19,7 +19,7 @@ const grid = ({
   grid,
   hover,
 }: IClassComb) => {
-  let newClasses = "grid";
+  let newClasses = "grid ";
   if (transition) {
     newClasses += transition + " ";
   }

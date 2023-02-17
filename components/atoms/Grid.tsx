@@ -7,6 +7,7 @@ import {
   TOnClick,
   TTransitionClass,
   TPosition,
+  TGrid,
   TZindex,
 } from "@/_types";
 
@@ -18,6 +19,7 @@ interface GridProps {
   transitionClasses?: TTransitionClass;
   positionClasses?: TPosition;
   zIndex?: TZindex;
+  gridClasses?: TGrid;
   children?: TChildren;
   style?: {};
 }
@@ -32,6 +34,7 @@ const Grid = ({
   zIndex,
   children,
   style,
+  gridClasses,
 }: GridProps) => {
   return (
     <div
@@ -39,6 +42,7 @@ const Grid = ({
         transition: transition(transitionClasses),
         dark: dark(lightClasses, darkClasses),
         className,
+        grid: gridClasses,
         position: positionClasses,
         zIndex: zIndex,
       })}
