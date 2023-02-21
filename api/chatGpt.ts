@@ -1,15 +1,13 @@
 import { instance } from './instance';
-import { IGoogleImg, IGoogleImgArr } from '@/_types';
+import { IchatGpt, IchatGptArr } from '@/_types';
 
-export const googleImgApi = async ({
-    keyword,
-    pageNo,
+export const chatGptApi = async ({
+    weather,
     gender,
-}: IGoogleImg): Promise<IGoogleImgArr> => {
-    if (keyword && pageNo && gender) {
-        const { data } = await instance.post('googleImg', {
-            keyword,
-            pageNo,
+}: IchatGpt): Promise<IchatGptArr> => {
+    if (weather && gender) {
+        const { data } = await instance.post('openai', {
+            weather,
             gender,
         });
 
