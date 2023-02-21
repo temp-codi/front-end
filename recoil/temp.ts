@@ -1,10 +1,10 @@
 import { atom } from 'recoil';
 import { v1 } from 'uuid';
-import { ITemperatureData } from '@/_types';
+import { ITemperatureData, IApiWeatherData } from '@/_types';
 
 export const tempAtom = atom({
     key: `temp_atom/${v1()}`,
-    default: null,
+    default: null || ({} as IApiWeatherData),
 });
 
 export const tempClassified = atom({

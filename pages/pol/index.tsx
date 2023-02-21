@@ -1,12 +1,10 @@
 import React from 'react';
-import { Flex, Dark, Text } from '@/components/atoms';
-import Left from '@/components/organisms/Left';
+import { Dark } from '@/components/atoms';
 import { useRecoilState } from 'recoil';
 import { darkAtom } from '@/recoil/dark';
-import { useGeo, useGoogleImg, useTempData } from '@/hooks';
-import { Card, CircleBox } from '@/components/molecules';
+import { useGeo, useTempData } from '@/hooks';
+
 import { TopTemperature, TempDetail } from '@/components/organisms';
-import { tempClassify } from '@/lib';
 
 const Pol = () => {
     const { location, data: geoData, isLoading: geoLoading } = useGeo();

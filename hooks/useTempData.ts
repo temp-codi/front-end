@@ -23,8 +23,8 @@ export const useTempData = () => {
                     } = data;
                     const res = tempClassify(list);
                     setTempClassified(res);
+                    setTempData(data.data);
                 }
-                setTempData(data);
 
                 return data;
             },

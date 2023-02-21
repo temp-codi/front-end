@@ -90,6 +90,17 @@ export type THeight = number | undefined;
 export type TLoading = 'lazy';
 
 /******  types for individual weather Data inside array *******/
+
+export interface IApiWeatherData {
+    api_called_date: string;
+    city_name: string;
+    list: IWeatherData[];
+    pollution_en: string;
+    pollution_kr: string;
+    __v: number;
+    _id: string;
+}
+
 export interface IWeatherData {
     cloud_in_percentage: number;
     dt: number;
