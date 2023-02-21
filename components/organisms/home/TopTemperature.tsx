@@ -14,7 +14,7 @@ const TopTemperature = () => {
             direction="row"
             className="border"
         >
-            {tempForecast.next5Days.map((item, idx) => {
+            {tempForecast.next5Days?.map((item, idx) => {
                 const { averageTemperature, weatherId } = item;
                 return (
                     <CircleBox
