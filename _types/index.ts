@@ -53,7 +53,7 @@ export interface Ilocation {
     lon: string;
 }
 
-/*******************  Interfacec for googleImg ******************/
+/*******************  Interfacec for googleImgProps ******************/
 
 export interface IGoogleImg {
     keyword: string | string[];
@@ -65,12 +65,23 @@ export interface IGoogleImg {
 export interface IGoogleImgInfo {
     googleInfo: {
         // Add the properties you need for the `googleInfo` object
-        img: string[];
-    };
+        img: string[] | null;
+    }[];
 }
 
-export type IGoogleImgArr = any;
+export type IGoogleImgArr = IGoogleImgInfo | null;
+/*******************  Interfacec for chatGptProps ******************/
+export interface IchatGpt {
+    weather: string;
+    gender: 'men' | 'women';
+}
+/*******************  Interfacec for chatGpt ******************/
+export interface IchatGptInfo {
+    response: string[];
+}
+[];
 
+export type IchatGptArr = IchatGptInfo | null;
 /*******************  types for img ******************/
 export type TSrc = any;
 export type TAlt = string;

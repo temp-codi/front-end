@@ -50,7 +50,7 @@ const Left = ({ type }: Props) => {
         );
     } else {
         if (!googleImgLoading) {
-            return googleImgData?.googleInfo.map((data: any) => {
+            return googleImgData?.googleInfo?.map((data: any) => {
                 return (
                     <Flex
                         className="h-screen w-96 p-4 bg-slate-800"
