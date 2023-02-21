@@ -6,13 +6,13 @@ import { darkAtom } from '@/recoil/dark';
 import { useGeo, useGoogleImg, useTempData } from '@/hooks';
 import { Card, CircleBox } from '@/components/molecules';
 import { TopTemperature, TempDetail } from '@/components/organisms';
+import { tempClassify } from '@/lib';
 
 const Pol = () => {
     const { location, data: geoData, isLoading: geoLoading } = useGeo();
     // const { data: googleImgData, isLoading: googleImgLoading } = useGoogleImg();
 
     const { data: tempData, isLoading: tempDataLoading } = useTempData();
-    console.log(tempData);
 
     // dark mode
     const [isDark, setIsDark] = useRecoilState(darkAtom);
@@ -22,7 +22,7 @@ const Pol = () => {
     };
     return (
         <Dark dark={isDark}>
-            <TopTemperature />
+            {!tempDataLoading && <TopTemperature />}
             <TempDetail />
         </Dark>
     );

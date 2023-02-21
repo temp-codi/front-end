@@ -88,3 +88,20 @@ export type TAlt = string;
 export type TWidth = number | undefined;
 export type THeight = number | undefined;
 export type TLoading = 'lazy';
+
+/******  types for individual weather Data inside array *******/
+export interface IWeatherData {
+    cloud_in_percentage: number;
+    dt: number;
+    feels_like: number;
+    humidity: number;
+    temp: number;
+    weather_id: number;
+    wind_speed: number;
+    _id: string;
+}
+/******  types for forecast weather Data *******/
+export interface ITemperatureData {
+    current: number;
+    next5Days: Array<{ averageTemperature: number; weatherId: number }>;
+}
